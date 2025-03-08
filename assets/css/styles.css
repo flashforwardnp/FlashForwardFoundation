@@ -197,25 +197,30 @@ img {
 }
 
 .nav__link {
-    position: relative;
-    color: var(--title-color);
-    font-family: var(--second-font);
-    font-size: 1.25rem;
+  position: relative;
+  color: var(--title-color);
+  font-family: var(--second-font);
+  font-size: 1.25rem;
+  display: inline-block; /* Ensures width is based on the text */
 }
 
 .nav__link::after {
-    content: '';
-    width: 0;
-    height: 3px;
-    background-color: var(--first-color);
-    position: absolute;
-    left: 0;
-    bottom: -.5rem;
-    transition: width .4s;
+  content: '';
+  width: 0;
+  height: 3px;
+  background-color: var(--first-color);
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  transition: width .4s;
 }
 
 .nav__link:hover::after {
-    width: 60%;
+  width: 100%;  /* Underline expands to full width */
+}
+
+.active-link::after {
+  width: 100%;  /* Active state underline covers full text */
 }
 
 .nav__close {
@@ -377,6 +382,7 @@ img {
 
 .hand, .group {
     width: 5vw; /* Adjusts width based on viewport width */
+    min-width: 55px;
     height: auto; /* Maintains aspect ratio */
 }
 
@@ -689,14 +695,14 @@ img {
 /*=============== SCROLL BAR ===============*/
 ::-webkit-scrollbar {
     width: .6rem;
-    background-color: hsl(24, 32%, 75%);
+    background-color: hsl(210, 88%, 71%);
 }
 ::-webkit-scrollbar-thumb {
-    background-color: hsl(24, 32%, 65%);
+    background-color: hsl(211, 79%, 57%);
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background-color: hsl(24, 32%, 55%);
+    background-color: hsl(210, 82%, 39%);
 }
 /*=============== SCROLL UP ===============*/
 .scrollup {
