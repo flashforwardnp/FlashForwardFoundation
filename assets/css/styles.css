@@ -219,7 +219,7 @@ img {
   bottom: -3px;
   width: 0;
   height: 3px;
-  background-color: var(--first-color);
+  background-image: linear-gradient(to right, #00b894, #0984e3);
   transition: width 0.4s;
 }
 
@@ -438,10 +438,13 @@ img {
   box-shadow: 0 8px 24px hsla(230, 100%, 67%, 0.4);
   transition: background-color .4s;
   margin: 0 auto;
+  background: linear-gradient(45deg, #00b894, #0984e3);
+  transition: all 0.3s ease-in-out;
 }
 
 .button:hover {
-  background-color: var(--first-color-alt);
+  background: linear-gradient(0deg, #00b894, #0984e3);
+  transform: scale(1.05);
 }
 
 /* Mobile Adjustments */
@@ -463,6 +466,7 @@ img {
 
   .button {
       padding: 0.8rem 1.5rem; /* Adjust button size */
+
   }
 }
 
@@ -975,7 +979,7 @@ img {
     position: fixed;
     right: 1rem;
     bottom: 3rem;
-    background-color: var(--body-color);
+    background: linear-gradient(0deg, #00b894, #0984e3);
     box-shadow: 0 4px 16px hsla(353, 100%, 8%, .2);
     color: var(--title-color);
     display: inline-flex;

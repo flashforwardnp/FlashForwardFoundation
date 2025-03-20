@@ -54,6 +54,16 @@ const scrollUp = () =>{
 }
 window.addEventListener('scroll', scrollUp)
 
+const scrollUpEl = document.getElementById('scroll-up');
+if (scrollUpEl) {
+  scrollUpEl.addEventListener('click', (e) => {
+    e.preventDefault(); // Prevent default anchor behavior
+    document.getElementById('home').scrollIntoView({ behavior: 'smooth' });
+  });
+}
+
+
+
 /*=============== SCROLL SECTIONS ACTIVE LINK ===============*/
 const sections = document.querySelectorAll('section[id]')
     
@@ -75,6 +85,5 @@ const scrollActive = () =>{
 }
 window.addEventListener('scroll', scrollActive)
 
-/*=============== SCROLL REVEAL ANIMATION ===============*/
 
 
