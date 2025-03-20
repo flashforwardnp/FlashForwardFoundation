@@ -1,5 +1,5 @@
 /*=============== GOOGLE FONTS ===============*/
-@import url('https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&family=Oswald:wght@200..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100..900&family=Oswald:wght@200..700&family=Raleway:ital,wght@0,100;1,100&display=swap');
 
 /*=============== VARIABLES CSS ===============*/
 :root {
@@ -24,6 +24,7 @@
   /*.5rem = 8px | 1rem = 16px ...*/
   --body-font: "Jost", sans-serif;
   --second-font: "Oswald", system-ui;
+  --third-font: "Raleway", Georgia;
   --biggest-font-size: 2.5rem;
   --bigger-font-size: 1.5rem;
   --h1-font-size: 1.5rem;
@@ -327,19 +328,19 @@ img {
 
 .home {
   position: relative;
-  background-image: url('/assets/img/kidstudyingwithcandle\ copy.jpg'); /* Replace with actual image path */
+  background-image: url('/assets/img/kidstudyingwithcandle copy.jpg');
   background-size: cover;
-  background-position: center 30%; /* Moves image up slightly to crop */
+  background-position: center 30%;
   background-repeat: no-repeat;
   width: 100%;
-  min-height: 80vh; /* Keeps enough space for text without clipping */
+  min-height: 100vh;  /* Increase from 80vh to 100vh for a taller section */
   display: flex;
-  justify-content: center; /* Centers horizontally */
-  align-items: center; /* Centers vertically */
-  text-align: center; /* Ensures text is centered */
+  justify-content: center;
+  align-items: center;
+  text-align: center;
   border-bottom: 0.3rem solid;
-  border-image: linear-gradient(to right, #00b894, #0984e3) 1;  
-  padding: 2rem; /* Adds spacing */
+  border-image: linear-gradient(to right, #00b894, #0984e3) 1;
+  padding: 4rem 2rem 2rem 2rem; /* Add more padding at the top (4rem) to push content down */
 }
 
 /* #home {
@@ -348,26 +349,81 @@ img {
 
 .home__container {
   display: flex;
+  position: absolute;
   flex-direction: column;
   align-items: center; /* Centers horizontally */
   justify-content: center; /* Centers vertically */
   text-align: center;
   max-width: 800px;
   height: 100%; /* Ensures it takes up the full height */
+  margin: 0 auto; 
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* Perfect center horizontally + vertically */
 }
 
 .home__title {
   color: var(--white-color);
   font-size: 2.8rem; /* Adjust size */
   font-weight: bold;
-  margin-bottom: 1rem;
+  margin: 0 auto 1rem auto;
 }
+
+.home__logo {
+  display: block;
+  margin: 0.5rem auto 1rem auto; /* Top margin: 0.5rem, bottom: 1rem, centered horizontally */
+  width: 100px;   /* Increase the base width as desired */
+  height: auto;
+  /* Optional: pulse animation if you want */
+  animation: pulse 2s infinite;
+  filter: drop-shadow(0 0 5px #00b894);
+}
+
+@media (min-width: 768px) {
+  .home__logo {
+    width: 150px;  /* Increase logo size on larger screens */
+  }
+}
+
+/* Pulse animation (optional) */
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
 
 .home__description {
   color: white;
   font-size: 1.2rem;
   margin-bottom: 1.5rem;
   max-width: 600px;
+}
+
+.home__data {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centers children horizontally */
+  margin: 0;
+  padding: 0;
+  line-height: 1; /* Or adjust if needed */
+  text-align: center;
+  margin: 0 auto;      /* Ensures the container itself is centered if needed */
+}
+
+.first {
+  font-size: 5rem;
+}
+
+.second {
+  font-size: 2rem;
+  font-family: var(--third-font);
 }
 
 .button {
@@ -381,6 +437,7 @@ img {
   border-radius: 4rem;
   box-shadow: 0 8px 24px hsla(230, 100%, 67%, 0.4);
   transition: background-color .4s;
+  margin: 0 auto;
 }
 
 .button:hover {
@@ -390,9 +447,9 @@ img {
 /* Mobile Adjustments */
 @media (max-width: 768px) {
   .home {
-      min-height: 40vh; /* Reduce vertical space for mobile */
+      min-height: 70vh; /* Reduce vertical space for mobile */
       background-position: center 40%; /* Adjust cropping for smaller screens */
-      padding: 1rem;
+      padding: 2rem 1rem;
   }
 
   .home__title {
@@ -411,6 +468,11 @@ img {
 
 /*=============== ABOUT ===============*/
 
+#about {
+  padding-top: 2rem; /* Adjust as needed */
+}
+
+
 .about {
     background: var(--container-color);
     padding: 4rem 0;
@@ -420,8 +482,8 @@ img {
 
 .about__container {
   display: grid;
-  grid-template-columns: 1fr 1fr; /* Text on the left, image on the right */
-  gap: 2rem;
+  grid-template-columns: 1.1fr 1fr; /* Text on the left, image on the right */
+  gap: 4rem;
   align-items: center;
   justify-content: center;
 }
@@ -429,24 +491,21 @@ img {
 /* Center the image properly */
 .image-container {
   display: flex;
-  justify-content: center; /* Center horizontally */
-  align-items: center; /* Align in the middle */
+  justify-content: flex-start; /* This aligns the image to the left */
+  align-items: center;
 }
 
 
 /* Image styling with frame */
 .image-frame {
-  border: 3px solid #007a5c; /* Use the same color as the testimonial box */
-  border-radius: 10px; /* Adjust the border-radius if necessary */
-  padding: 1rem; /* Keep some spacing inside the frame */
+  border: 3px solid #000000; /* Use the same color as the testimonial box */
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Optional: Add a subtle shadow for depth */
-  background-color: white; /* Ensure background matches the testimonial box */
+  background-color: rgba(255, 255, 255, 0); /* Ensure background matches the testimonial box */
 }
-
 
 .about__img {
   width: 100%;
-  max-width: 350px; /* Ensures the image fits well within the frame */
+  max-width: 400px; /* Ensures the image fits well within the frame */
   height: auto;
   border-radius: 5px;
 }
@@ -665,6 +724,11 @@ img {
 }
 
 /*=============== VISION ===============*/
+
+#vision {
+  padding-top: 2rem; /* Adjust as needed */
+}
+
 .vision {
     background-color: #d6d6d6;
     padding: 4rem 0;
@@ -684,7 +748,10 @@ img {
 .vision__image {
     display: flex;
     justify-content: center; /* Center image horizontally */
-    align-items: flex-start; /* Align image at the top */
+    align-items: center; /* Align image at the top */
+    padding-right: 9rem;
+
+    
 }
 
 .vision__img {
@@ -696,8 +763,8 @@ img {
 }
 
 .vision__data {
-    text-align: left;
-    padding-left: 2rem; /* Adds some space between the text and image */
+    text-align: center;
+    padding-left: 0rem; /* Adds some space between the text and image */
 }
 
 .vision__title {
@@ -1032,10 +1099,10 @@ img {
 
 
     .home__container {
-        grid-template-columns: 515px 55px;
-        column-gap: 3px;
-        align-items: start;
-        padding-block: 10rem 4rem;
+      grid-template-columns: 515px 55px;
+      column-gap: 3px;
+      align-items: start;
+      padding-block: 10rem 4rem;
     }
 
     .home__data {
@@ -1428,6 +1495,7 @@ img {
     text-align: center;
     color: #fff;
   }
+
   .hero-section::after {
     content: '';
     position: absolute;
