@@ -247,47 +247,59 @@ img {
   cursor: pointer;
 }
 
-/* MEDIA QUERY (example for mobile) */
 @media screen and (max-width: 1150px) {
-  /* Position the menu offscreen until toggled */
-  .nav__menu {
-    position: fixed;
-    top: -120%;
-    left: 0;
-    background-color: var(--body-color);
-    width: 100%;
-    padding-block: 4.5rem 3.5rem;
-    box-shadow: 0 4px 16px hsla(353, 100%, 8%, 0.1);
-  }
-  .nav__toggle {
-    display: block; /* Show toggle icon on smaller screens */
-  }
-}
 
+  main {
+    padding-top: 4rem; /* Adjust to match your header height */
+  }
 
-/**************************************
- * MOBILE STYLES (max-width: 1150px)
- **************************************/
- @media screen and (max-width: 1150px) {
+  .header {
+    height: 4.3rem;
+  }
+
+  .nav {
+    height: 100%;
+    align-items: center;
+  }
+
+  .container {
+    max-width: 100%;
+    margin: 0;
+    padding: 0;
+    padding-right: 3vh;
+  }
+  
+  /* Show toggle icon */
   .nav__toggle {
     display: block;
+    font-size: 1.5rem;
+    color: white;
+    cursor: pointer;
   }
 
+  /* Mobile menu container */
   .nav__menu {
     position: fixed;
-    top: -100%;
+    top: -100vh;  /* Hide the menu fully off-screen */
     left: 0;
     width: 100%;
-    height: calc(100vh - var(--header-height));
+    height: 100vh;
     flex-direction: column;
-    justify-content: center; /* Center vertically */
-    align-items: center; /* Center horizontally */
+    justify-content: center;
+    align-items: center;
     padding: 2rem;
-    background-color: var(--body-color);
+    background-color: rgb(21, 21, 21);
     transition: top 0.4s;
     z-index: var(--z-fixed);
   }
+  
 
+  /* When the menu is toggled, slide it down */
+  .nav__menu.show-menu {
+    top: 0;
+  }
+
+  /* Stack nav items vertically */
   .nav__list {
     flex-direction: column;
     gap: 2rem;
@@ -299,18 +311,20 @@ img {
     padding: 0.5rem 0;
   }
 
-  .nav__menu.show-menu {
-    top: var(--header-height);
-  }
-
+  /* Display the close button */
   .nav__close {
     display: block;
     position: absolute;
     top: 1rem;
     right: 1.5rem;
+    font-size: 1.5rem;
+    color: white;
+    cursor: pointer;
   }
 }
+
 /*=============== HOME ===============*/
+
 .home {
   position: relative;
   background-image: url('/assets/img/kidstudyingwithcandle\ copy.jpg'); /* Replace with actual image path */
@@ -327,6 +341,10 @@ img {
   border-image: linear-gradient(to right, #00b894, #0984e3) 1;  
   padding: 2rem; /* Adds spacing */
 }
+
+/* #home {
+  padding-bottom: 2rem;
+} */
 
 .home__container {
   display: flex;
