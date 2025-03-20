@@ -85,5 +85,26 @@ const scrollActive = () =>{
 }
 window.addEventListener('scroll', scrollActive)
 
-
-
+// FAQ Section
+document.addEventListener('DOMContentLoaded', () => {
+    const faqItems = document.querySelectorAll('.faq__item');
+    
+    faqItems.forEach(item => {
+      const question = item.querySelector('.faq__question');
+      if (question) {
+        question.addEventListener('click', () => {
+          // Toggle the active class to expand/collapse the FAQ item
+          item.classList.toggle('active');
+  
+          // Change the icon from '+' to '-' or vice versa
+          const icon = item.querySelector('.faq__icon');
+          if (item.classList.contains('active')) {
+            icon.textContent = '-';
+          } else {
+            icon.textContent = '+';
+          }
+        });
+      }
+    });
+  });
+  
