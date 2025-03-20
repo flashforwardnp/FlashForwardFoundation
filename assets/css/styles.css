@@ -419,11 +419,13 @@ img {
 
 .first {
   font-size: 5rem;
+  filter: drop-shadow(0 0 1.3px #ffffff);
 }
 
 .second {
   font-size: 2rem;
   font-family: var(--third-font);
+  filter: drop-shadow(0 0 5px #e1e6e5);
 }
 
 .button {
