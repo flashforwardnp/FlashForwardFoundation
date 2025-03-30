@@ -429,25 +429,103 @@ img {
 }
 
 .button {
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
-  background-color: var(--first-color);
-  color: var(--white-color);
-  padding: 1rem 2rem;
-  font-weight: var(--font-semi-bold);
-  border-radius: 4rem;
-  box-shadow: 0 8px 24px hsla(230, 100%, 67%, 0.4);
-  transition: background-color .4s;
-  margin: 0 auto;
-  background: linear-gradient(45deg, #00b894, #0984e3);
-  transition: all 0.3s ease-in-out;
+  /* Remove fixed dimensions so it adapts to text */
+  color: #fff;
+  border-radius: 5px;
+  padding: 10px 25px;
+  font-family: 'Lato', sans-serif;
+  font-weight: 500;
+  background: linear-gradient(0deg, rgba(0,172,238,1) 0%, rgba(2,126,251,1) 100%);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  display: inline-block;
+  text-align: center;
+  text-decoration: none;
+  border: none;
+  box-shadow: inset 2px 2px 2px 0px rgba(255,255,255,0.5),
+              7px 7px 20px 0px rgba(0,0,0,0.1),
+              4px 4px 5px 0px rgba(0,0,0,0.1);
+  outline: none;
+  overflow: hidden; /* ensures pseudo-elements don't overflow */
 }
 
-.button:hover {
-  background: linear-gradient(0deg, #00b894, #0984e3);
-  transform: scale(1.05);
+.button span {
+  position: relative;
+  display: block;
+  /* No fixed width/height so it fills based on parent's padding */
 }
+
+/* Top and right streaks */
+.button:before,
+.button:after {
+  position: absolute;
+  content: "";
+  right: 0;
+  top: 0;
+  background: rgba(2,126,251,1);
+  transition: all 0.3s ease;
+}
+
+.button:before {
+  height: 0%;
+  width: 2px;
+}
+
+.button:after {
+  width: 0%;
+  height: 2px;
+}
+
+/* Left and bottom streaks on the span element */
+.button span:before,
+.button span:after {
+  position: absolute;
+  content: "";
+  left: 0;
+  bottom: 0;
+  background: rgba(2,126,251,1);
+  transition: all 0.3s ease;
+}
+
+.button span:before {
+  width: 2px;
+  height: 0%;
+}
+
+.button span:after {
+  width: 0%;
+  height: 2px;
+}
+
+/* On hover, animate all streaks */
+.button:hover {
+  background: transparent;
+  box-shadow: none;
+}
+
+.button:hover:before {
+  height: 100%;
+}
+
+.button:hover:after {
+  width: 100%;
+}
+
+/* Ensure left and bottom streaks now animate based on the button's dimensions */
+.button:hover span:before {
+  height: 100%;
+}
+
+.button:hover span:after {
+  width: 100%;
+}
+
+/* Change text color on hover */
+.button:hover span {
+  color: rgba(2,126,251,1);
+}
+
 
 /* Mobile Adjustments */
 @media (max-width: 768px) {
