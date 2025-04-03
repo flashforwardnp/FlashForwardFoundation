@@ -85,34 +85,5 @@ const scrollActive = () =>{
 }
 window.addEventListener('scroll', scrollActive)
 
-// FAQ Section
 
-document.addEventListener('DOMContentLoaded', () => {
-    console.log("FAQ script loaded");
-  
-    const faqItems = document.querySelectorAll('.faq__item');
-    console.log("Found FAQ items:", faqItems);
-  
-    faqItems.forEach(item => {
-      const question = item.querySelector('.faq__question');
-      if (question) {
-        question.addEventListener('click', () => {
-          // Toggle active class
-          item.classList.toggle('active');
-  
-          // Change icon
-          const icon = item.querySelector('.faq__icon');
-          if (icon) {
-            if(item.classList.contains('active')){
-              icon.textContent = '-';
-            } else {
-              icon.textContent = '+';
-            }
-          }
-        });
-      } else {
-        console.log("No FAQ question found for item:", item);
-      }
-    });
-  });
-  
+
