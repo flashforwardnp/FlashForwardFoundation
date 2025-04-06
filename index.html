@@ -1,213 +1,275 @@
 <!DOCTYPE html>
-   <html lang="en">
-   <head>
-      <meta charset="UTF-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-      <!--=============== FAVICON ===============-->
-      <link rel="shortcut icon" href="assets/img/favicon.png" type="image/x-icon">
+    <!--=============== FAVICON ===============-->
+    <link rel="shortcut icon" href="assets/img/favicon.png" type="image/x-icon">
 
-      <!--=============== REMIXICONS ===============-->
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.css">
+    <!--=============== REMIXICONS ===============-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.css">
 
-      <!--=============== SWIPER CSS ===============-->
-      <link rel="stylesheet" href="">
+    <!--=============== CSS ===============-->
+    <link rel="stylesheet" href="assets/css/styles.css">
 
-      <!--=============== CSS ===============-->
-      <link rel="stylesheet" href="assets/css/styles.css">
+    <title>Flash Forward Foundation</title>
+</head>
+<body>
+    <!--==================== PROMO BANNER ====================-->
+    <div class="promo-banner">
+        <a href="https://gofund.me/436b67db" class="animated-anchor-link">
+            <span id="typing-text"></span>
+        </a>
+    </div>
 
-      <title>Flash Forward Foundation</title>
-   </head>
-   <body>
-      <!--==================== PROMO BANNER ====================-->
-      <div class="promo-banner">
-        <a href="https://gofund.me/436b67db" id="typing-text" class="animated-anchor-link"></a>
-      </div>
+    <script>
+    const textArray = [
+        "🌟 Join us in lighting up futures! Donate today and make a difference. Click here to support ➜"
+    ];
+    let textIndex = 0;
+    let charIndex = 0;
+    let typingSpeed = 40; // Speed of typing
+    let erasingSpeed = 40; // Speed of erasing
+    let delayBetweenTexts = 3000; // Delay before typing new text
 
-      <!--==================== HEADER ====================-->
-      <header class="header" id="header">
-        <nav class="nav container">
-            <!-- Logo -->
-            <a href="./index.html" class="nav__logo">
-                <img src="assets/img/logobig.svg" alt="image">
+    function typeText() {
+        if (charIndex < textArray[textIndex].length) {
+            document.getElementById("typing-text").innerHTML += textArray[textIndex].charAt(charIndex);
+            charIndex++;
+            setTimeout(typeText, typingSpeed);
+        } else {
+            setTimeout(eraseText, delayBetweenTexts);
+        }
+    }
+
+    function eraseText() {
+        if (charIndex > 0) {
+            document.getElementById("typing-text").innerHTML = textArray[textIndex].substring(0, charIndex - 1);
+            charIndex--;
+            setTimeout(eraseText, erasingSpeed);
+        } else {
+            setTimeout(typeText, typingSpeed);
+        }
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+        setTimeout(typeText, 500);
+    });
+    </script>
+
+    <!--==================== HEADER ====================-->
+    <header class="header">
+        <nav class="nav">
+            <a href="/" class="nav__logo">
+                <img src="assets/img/logobig.svg" alt="Flash Forward Logo">
                 Flash Forward
             </a>
-    
-            <!-- Navigation Menu -->
+
             <div class="nav__menu" id="nav-menu">
                 <ul class="nav__list">
-                    <li>
-                        <a href="#home" class="nav__link active-link">Home</a>
-                    </li>
-
-                    <li>
-                        <a href="#about" class="nav__link">About Us</a>
-                    </li>
-
-                    <li>
-                        <a href="#partner" class="nav__link">Partnerships</a>
-                    </li>
-
-                    <li>
-                        <a href="#vision" class="nav__link">Blog</a>
-                    </li>
-
-                    <li>
-                        <a href="https://gofund.me/436b67db" class="nav__link">Donate</a>
-                    </li>
-
-                    <li>
-                        <a href="/contact.html" class="nav__link">Contact</a>
-                    </li>
+                    <li><a href="/" class="nav__link">Home</a></li>
+                    <li><a href="/about.html" class="nav__link">About Us</a></li>
+                    <li><a href="/impact.html" class="nav__link">Our Impact</a></li>
+                    <li><a href="/partners.html" class="nav__link">Partners</a></li>
+                    <li><a href="/blog.html" class="nav__link">Blog</a></li>
+                    <li><a href="https://gofund.me/436b67db" class="button">Donate</a></li>
                 </ul>
-            
-                <!-- Close button -->
+
                 <div class="nav__close" id="nav-close">
-                <i class="ri-close-large-line"></i>
+                    <i class="ri-close-line"></i>
                 </div>
             </div>
-    
-        <!-- Toggle button -->
-        <div class="nav__toggle" id="nav-toggle">
-            <i class="ri-apps-2-fill"></i>
-        </nav>
-      </header>
 
-      <!--==================== MAIN ====================-->
-      <main class="main">
-         <!--==================== HOME ====================-->
-         <section class="home section" id="home">
-            <div class="home__container container grid">
+            <div class="nav__toggle" id="nav-toggle">
+                <i class="ri-menu-line"></i>
+            </div>
+        </nav>
+    </header>
+
+    <!--==================== MAIN ====================-->
+    <main class="main">
+        <!--==================== HOME ====================-->
+        <section class="home section" id="home">
+            <div class="home__container container">
                 <div class="home__data">
                     <img src="./assets/img/logoholo.svg" alt="Flash Forward Logo" class="home__logo">
                     <h1 class="home__title first">Flash Forward</h1>
                     <h1 class="home__title second">Lighting Brighter Futures</h1>
                     <a href="https://gofund.me/436b67db" class="button">Donate Now</a>
                 </div>
-
-                <div class="home__images">
-
-                </div>
             </div>
-         </section>
+        </section>
 
-         <!--==================== ABOUT ====================-->
-
-         <section class="about section" id="about">
-            <div class="about__container container grid">
-                <!-- Image section on the right -->
-                <div class="image-container">
-                    <!-- First Image with Frame -->
-                    <div class="image-frame first-image">
-                        <img src="assets/img/ghanakidpencil.jpg" alt="image" class="about__img">
-                    </div>
-                </div>
-        
-                <!-- Text Section -->
+        <!--==================== ABOUT ====================-->
+        <section class="about">
+            <div class="about__container container">
                 <div class="about__data">
-                    <h2 class="section__title">How we're making a difference</h2>
+                    <h2 class="section__title">Our Mission</h2>
                     <p class="about__description">
-                        At Flash Forward, we believe that light is more than just illumination—it's a tool for learning, growth, and security. 
-                        Our mission is to provide solar-powered flashlights to children in off-grid communities, 
-                        ensuring they have the light they need to study, walk safely at night, and build a brighter future.
+                        At Flash Forward, we believe that light is more than just illumination—it's a gateway to education, 
+                        safety, and opportunity. Our mission is to break down barriers to education by providing sustainable 
+                        lighting solutions to children in communities without reliable electricity.
                     </p>
-                
                     <div class="about__points">
                         <div class="point">
-                            <img src="assets/img/firehand copy.svg" alt="" class="hand">
-                            <p>The secret to happiness lies in helping others. Never underestimate the difference <span style="font-weight: bold;">YOU</span> can make in the lives of the poor, the abused, and the helpless.</p>
+                            <img src="assets/img/firehand copy.svg" alt="Impact icon">
+                            <p>Every flashlight we provide helps a child study after sunset, expanding their learning opportunities.</p>
                         </div>
                         <div class="point">
-                            <img src="assets/img/group copy.svg" alt="" class="group">
-                            <p>No electricity means children struggle to do homework after sunset, limiting their education and reinforcing the cycle of poverty.</p>
+                            <img src="assets/img/group copy.svg" alt="Community icon">
+                            <p>We work directly with local communities to ensure our solutions meet their specific needs.</p>
                         </div>
                     </div>
-                
-                    <a href="/about.html" class="button">Learn More</a>
+                    <a href="/about.html" class="button">Learn More About Us</a>
+                </div>
+                <div class="about__image">
+                    <img src="assets/img/ghanakidpencil.jpg" alt="Child with school supplies">
                 </div>
             </div>
         </section>
-        
-        
-        
 
-         <!--==================== PARTNERSHIPS ====================-->
-         <section class="popular section" id="partner">
-            <div class="partner__container container grid">
-                <!-- Partner Text Section -->
-                <div class="partner__data">
-                    <h2 class="partner__title">Partnerships</h2>
+        <!--==================== PARTNERS ====================-->
+        <section class="partner">
+            <div class="partner__container">
+                <img src="assets/img/Sammamish.png" alt="Sammamish High School logo" class="partner__logo">
+                <div class="partner__content">
+                    <h2 class="partner__title">Our Partners</h2>
                     <p class="partner__description">
-                        At Flash Forward, we believe that collaboration strengthens impact. That's why we're partnering with
-                        the Sammamish High School Builders Club, an engineering-focused student organization dedicated to hands-on innovation.
-                        This collaboration also embodies our mission of uniting local communities to drive global change. 
-                        Together, we're building a brighter future—one light at a time.
+                        We collaborate with dedicated organizations and schools to maximize our impact. 
+                        Our partnership with the Sammamish High School Builders Club demonstrates how 
+                        local communities can drive global change.
                     </p>
-                </div>
-        
-                <!-- Partner Image Section -->
-                <div class="partner__image">
-                    <img src="assets/img/Sammamish.png" alt="Partner Logo" class="partner__logo">
+                    <a href="/partners.html" class="button">View All Partners</a>
                 </div>
             </div>
         </section>
-        
-        
-        <section class="partners-say section" id="partners-say">
-            <div class="container">
-              <h2 class="partners-say__title">What Our Collaborators Say</h2>
-              <div class="partners-say__quotes grid">
-                <div class="partners-say__quote">
-                  <p class="partners-say__text">
-                    "Flash Forward has completely transformed our approach to community outreach. Their innovative solutions inspire us every day."
-                  </p>
-                  <h3 class="partners-say__author">– Shreyas Prabhu</h3>
-                </div>
-                <div class="partners-say__quote">
-                  <p class="partners-say__text">
-                    "Our partnership has allowed us to reach new heights in community impact. The collaboration is truly a game-changer."
-                  </p>
-                  <h3 class="partners-say__author">– Bayne Wilson</h3>
-                </div>
-                <div class="partners-say__quote">
-                  <p class="partners-say__text">
-                    "Working with Flash Forward has reinvigorated our mission. Together, we're making a lasting difference."
-                  </p>
-                  <h3 class="partners-say__author">– Neil Mukherjee</h3>
-                </div>
-              </div>
-            </div>
-          </section>
-          
 
-         <!--==================== VISION ====================-->
-         <section class="vision section" id="vision">
-            <div class="vision__container container grid">
-                <!-- Vision Image Section (optional) -->
+        <!--==================== VISION ====================-->
+        <section class="vision">
+            <div class="vision__container container">
                 <div class="vision__image">
-                    <img src="assets/img/ghanamanholdingupflashlight copy.jpg" alt="Vision Image" class="vision__img">
+                    <img src="assets/img/ghanamanholdingupflashlight copy.jpg" alt="Man holding flashlight">
                 </div>
-        
-                <!-- Vision Text Section -->
                 <div class="vision__data">
-                    <h2 class="vision__title">Our Vision</h2>
+                    <h2 class="section__title">Our Vision</h2>
                     <p class="vision__description">
-                        A world where no child's future is limited by darkness. We envision a future where every child, regardless of location or background, has access to safe, sustainable lighting. By leveraging solar technology, we're creating long-term impact—one flashlight at a time.
+                        We envision a world where no child's education is limited by lack of light. 
+                        Through sustainable solar technology and community partnerships, we're creating 
+                        lasting change—one flashlight at a time.
                     </p>
-                    <br>
-                    <a href="/blog.html" class="button">Blog</a>
+                    <a href="/impact.html" class="button">See Our Impact</a>
                 </div>
             </div>
         </section>
 
+        <!--==================== FAQ ====================-->
+        <section class="faq">
+            <div class="faq__container">
+                <h2 class="faq__title">What's on your mind?</h2>
+                
+                <div class="faq__item">
+                    <div class="faq__question">
+                        How do I make a donation to help fight poverty?
+                        <i class="ri-arrow-down-s-line"></i>
+                    </div>
+                    <div class="faq__answer">
+                        <div class="faq__answer-content">
+                            You can make a donation through our GoFundMe page or contact us directly for other donation options. Every contribution helps us provide solar-powered flashlights to children in need.
+                        </div>
+                    </div>
+                </div>
 
-      <!--==================== FOOTER ====================-->
-      <footer class="footer">
-         <div class="footer__container container grid">
-            <a href="#" class="footer__logo"></a>
-            <div class="footer__content grid">
+                <div class="faq__item">
+                    <div class="faq__question">
+                        Why should I support Flash Forward?
+                        <i class="ri-arrow-down-s-line"></i>
+                    </div>
+                    <div class="faq__answer">
+                        <div class="faq__answer-content">
+                            Flash Forward provides sustainable lighting solutions to children in off-grid communities, enabling them to study after dark and break the cycle of poverty through education. Your support directly impacts children's educational opportunities.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq__item">
+                    <div class="faq__question">
+                        How will Flash Forward use my donation?
+                        <i class="ri-arrow-down-s-line"></i>
+                    </div>
+                    <div class="faq__answer">
+                        <div class="faq__answer-content">
+                            Your donation goes directly towards purchasing and distributing solar-powered flashlights to children in need. We also invest in community partnerships and educational programs to ensure sustainable impact.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq__item">
+                    <div class="faq__question">
+                        Can I volunteer or get involved?
+                        <i class="ri-arrow-down-s-line"></i>
+                    </div>
+                    <div class="faq__answer">
+                        <div class="faq__answer-content">
+                            Yes! We welcome volunteers and partnerships. Contact us to learn about current opportunities and how you can contribute to our mission.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!--==================== CONTACT ====================-->
+        <section class="contact">
+            <div class="contact__container">
+                <div class="contact__content">
+                    <h2 class="contact__title">Get in Touch</h2>
+                    <p class="contact__description">
+                        Have questions about our mission or want to get involved? We'd love to hear from you!
+                    </p>
+                    <div class="contact__info">
+                        <div class="contact__card">
+                            <i class="ri-mail-line contact__card-icon"></i>
+                            <div>
+                                <h3 class="contact__card-title">Email</h3>
+                                <span class="contact__card-data">info@flashforwardfoundation.org</span>
+                            </div>
+                        </div>
+                        <div class="contact__card">
+                            <i class="ri-map-pin-line contact__card-icon"></i>
+                            <div>
+                                <h3 class="contact__card-title">Location</h3>
+                                <span class="contact__card-data">Sammamish, WA</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <form action="" class="contact__form">
+                    <div class="contact__form-div">
+                        <label class="contact__form-tag">Name</label>
+                        <input type="text" class="contact__form-input" placeholder="Your Name">
+                    </div>
+                    <div class="contact__form-div">
+                        <label class="contact__form-tag">Email</label>
+                        <input type="email" class="contact__form-input" placeholder="Your Email">
+                    </div>
+                    <div class="contact__form-div">
+                        <label class="contact__form-tag">Message</label>
+                        <textarea class="contact__form-input contact__form-area" placeholder="Your Message"></textarea>
+                    </div>
+                    <button class="button">Send Message</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <!--==================== FOOTER ====================-->
+    <footer class="footer">
+        <div class="footer__container container">
+            <div class="footer__content">
                 <div>
-                    <h3 class="footer__title">Social</h3>
+                    <h3 class="footer__title">Flash Forward</h3>
+                    <p class="footer__text">Lighting the path to education for children worldwide.</p>
                     <div class="footer__social">
                         <a href="https://www.instagram.com/flashforwardfoundation/" target="_blank" class="footer__social-link">
                             <i class="ri-instagram-fill"></i>
@@ -220,36 +282,36 @@
                         </a>
                     </div>
                 </div>
+
                 <div>
-                    <h3 class="footer__title">Subscribe to Our Newsletter</h3>
+                    <h3 class="footer__title">Quick Links</h3>
+                    <ul class="footer__links">
+                        <li><a href="/about.html">About Us</a></li>
+                        <li><a href="/impact.html">Our Impact</a></li>
+                        <li><a href="/partners.html">Partners</a></li>
+                        <li><a href="/blog.html">Blog</a></li>
+                        <li><a href="/contact.html">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="footer__title">Stay Updated</h3>
                     <form action="" class="footer__form">
-                        <input type="email" placeholder="Email" class="footer__input">
+                        <input type="email" placeholder="Enter your email" class="footer__input">
                         <button type="submit" class="footer__button button">Subscribe</button>
                     </form>
                 </div>
             </div>
-         </div>
+        </div>
+        <span class="footer__copy">&#169; 2024 Flash Forward Foundation. All rights reserved.</span>
+    </footer>
 
-         <span class="footer__copy">
-            &#169; All Rights Reserved
-         </span>
-      </footer>
-
-      <!--========== SCROLL UP ==========-->
-      <a href="#home" class="scrollup" id="scroll-up">
+    <!--========== SCROLL UP ==========-->
+    <a href="#home" class="scrollup" id="scroll-up">
         <i class="ri-arrow-up-line"></i>
-      </a>
+    </a>
 
-      <!--=============== SCROLLREVEAL ===============-->
-      <script src=""></script>
-      
-      <!--=============== SWIPER JS ===============-->
-      <script src=""></script>
-
-      <!--=============== TYPING ANIMATION ===============-->
-      <script src="assets/js/typing-animation.js"></script>
-
-      <!--=============== MAIN JS ===============-->
-      <script src="assets/js/main.js"></script>
-   </body>
+    <!--=============== MAIN JS ===============-->
+    <script src="assets/js/main.js"></script>
+</body>
 </html>

@@ -1,32 +1,22 @@
-const textArray = [
-    "🌟 Join us in lighting up futures! Donate today and make a difference. Click here to support ➜"
-];
-let textIndex = 0;
-let charIndex = 0;
-let typingSpeed = 40; // Speed of typing
-let erasingSpeed = 40; // Speed of erasing
-let delayBetweenTexts = 3000; // Delay before typing new text
+const text = "Support our mission to bring light to children in need - Donate Now";
+const typingText = document.getElementById('typing-text');
+let index = 0;
 
-function typeText() {
-    if (charIndex < textArray[textIndex].length) {
-        document.getElementById("typing-text").innerHTML += textArray[textIndex].charAt(charIndex);
-        charIndex++;
-        setTimeout(typeText, typingSpeed);
+function type() {
+    if (index < text.length) {
+        typingText.textContent += text.charAt(index);
+        index++;
+        setTimeout(type, 50); // Adjust typing speed here
     } else {
-        setTimeout(eraseText, delayBetweenTexts);
+        setTimeout(resetTyping, 3000); // Wait 3 seconds before restarting
     }
 }
 
-function eraseText() {
-    if (charIndex > 0) {
-        document.getElementById("typing-text").innerHTML = textArray[textIndex].substring(0, charIndex - 1);
-        charIndex--;
-        setTimeout(eraseText, erasingSpeed);
-    } else {
-        setTimeout(typeText, typingSpeed);
-    }
+function resetTyping() {
+    typingText.textContent = '';
+    index = 0;
+    type();
 }
 
-document.addEventListener("DOMContentLoaded", () => {
-    setTimeout(typeText, 500);
-}); 
+// Start the typing animation when the page loads
+window.addEventListener('load', type);

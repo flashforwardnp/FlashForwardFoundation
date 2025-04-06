@@ -17,6 +17,14 @@ if(navClose){
     })
 }
 
+/* Close menu when clicking on a nav link */
+const navLinks = document.querySelectorAll('.nav__link')
+navLinks.forEach(link => {
+    link.addEventListener('click', () => {
+        navMenu.classList.remove('show-menu')
+    })
+})
+
 /*=============== REMOVE MENU MOBILE ===============*/
 const navLink = document.querySelectorAll('.nav__link')
 
@@ -26,7 +34,6 @@ const linkAction = () =>{
     navMenu.classList.remove('show-menu')
 }
 navLink.forEach(n => n.addEventListener('click', linkAction))
-
 
 /*=============== ADD SHADOW HEADER ===============*/
 const shadowHeader = () =>{
@@ -62,8 +69,6 @@ if (scrollUpEl) {
   });
 }
 
-
-
 /*=============== SCROLL SECTIONS ACTIVE LINK ===============*/
 const sections = document.querySelectorAll('section[id]')
     
@@ -84,6 +89,25 @@ const scrollActive = () =>{
 	})
 }
 window.addEventListener('scroll', scrollActive)
+
+/*=============== FAQ FUNCTIONALITY ===============*/
+const faqItems = document.querySelectorAll('.faq__item');
+
+faqItems.forEach(item => {
+    const question = item.querySelector('.faq__question');
+    
+    question.addEventListener('click', () => {
+        // Close all other items
+        faqItems.forEach(otherItem => {
+            if (otherItem !== item && otherItem.classList.contains('active')) {
+                otherItem.classList.remove('active');
+            }
+        });
+        
+        // Toggle current item
+        item.classList.toggle('active');
+    });
+});
 
 
 
