@@ -17,178 +17,301 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.css"
     />
 
-    <!--=============== SWIPER CSS ===============-->
-    <link rel="stylesheet" href="" />
-
     <!--=============== CSS ===============-->
     <link rel="stylesheet" href="assets/css/styles.css" />
 
-    <title>About Us Page</title>
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+
+    <title>About Us - Flash Forward Foundation</title>
   </head>
   <body>
-    <header class="header" id="header">
-      <nav class="nav container">
-        <a href="./index.html" class="nav__logo">
-          <img src="assets/img/logobig.svg" alt="image" />
-          Flash Forward
+    <!--==================== PROMO BANNER ====================-->
+    <div class="promo-banner">
+        <a href="https://gofund.me/436b67db" class="animated-anchor-link">
+            <span id="typing-text"></span>
         </a>
+    </div>
 
-        <div class="nav__menu" id="nav-menu">
-          <ul class="nav__list">
-            <li>
-              <a href="/index.html" class="nav__link active-link">Home</a>
-            </li>
+    <script>
+    const textArray = [
+        "🌟 Join us in lighting up futures! Donate today and make a difference. Click here to support ➜"
+    ];
+    let textIndex = 0;
+    let charIndex = 0;
+    let typingSpeed = 40;
+    let erasingSpeed = 40;
+    let delayBetweenTexts = 3000;
 
-            <li>
-              <a href="/about.html" class="nav__link">About Us</a>
-            </li>
+    function typeText() {
+        if (charIndex < textArray[textIndex].length) {
+            document.getElementById("typing-text").innerHTML += textArray[textIndex].charAt(charIndex);
+            charIndex++;
+            setTimeout(typeText, typingSpeed);
+        } else {
+            setTimeout(eraseText, delayBetweenTexts);
+        }
+    }
 
-            <li>
-              <a href="/index.html" class="nav__link">Partnerships</a>
-            </li>
+    function eraseText() {
+        if (charIndex > 0) {
+            document.getElementById("typing-text").innerHTML = textArray[textIndex].substring(0, charIndex - 1);
+            charIndex--;
+            setTimeout(eraseText, erasingSpeed);
+        } else {
+            setTimeout(typeText, typingSpeed);
+        }
+    }
 
-            <li>
-              <a href="/blog.html" class="nav__link">Blog</a>
-            </li>
+    document.addEventListener("DOMContentLoaded", () => {
+        setTimeout(typeText, 500);
+    });
+    </script>
 
-            <li>
-              <a href="https://gofund.me/436b67db" class="nav__link">Donate</a>
-            </li>
+    <!--==================== HEADER ====================-->
+    <header class="header" id="header">
+        <nav class="nav">
+            <a href="/" class="nav__logo">
+                <img src="assets/img/logobig.svg" alt="Flash Forward Logo">
+                Flash Forward
+            </a>
 
-            <li>
-              <a href="/contact.html" class="nav__link">Contact</a>
-            </li>
-          </ul>
+            <div class="nav__menu" id="nav-menu">
+                <ul class="nav__list">
+                    <li><a href="/" class="nav__link">Home</a></li>
+                    <li><a href="/about.html" class="nav__link">About Us</a></li>
+                    <li><a href="/ourteam.html" class="nav__link">Our Team</a></li>
+                    <li><a href="/blog.html" class="nav__link">Blog</a></li>
+                    <li><a href="/contact.html" class="nav__link">Contact</a></li>
+                    <li><a href="https://gofund.me/436b67db" class="button">Donate</a></li>
+                </ul>
 
-          <!-- Close button -->
-          <div class="nav__close" id="nav-close">
-            <i class="ri-close-large-line"></i>
-          </div>
-        </div>
+                <div class="nav__close" id="nav-close">
+                    <i class="ri-close-line"></i>
+                </div>
+            </div>
 
-        <!-- Toggle button -->
-        <div class="nav__toggle" id="nav-toggle">
-          <i class="ri-apps-2-fill"></i>
-        </div>
-      </nav>
+            <div class="nav__toggle" id="nav-toggle">
+                <i class="ri-menu-line"></i>
+            </div>
+        </nav>
     </header>
 
-    <!-- About Us section -->
-     <br><br><br>
-    <section class="team section" id="team">
-      <div class="container">
-        <h2 class="section__title">Our Team</h2>
-        <div class="team__grid">
-          <!-- Team Member Card -->
-          <div class="team__card">
-            <img src="assets/img/team/member1.jpg" alt="Member Name" class="team__photo">
-            <h3 class="team__name">Member Name</h3>
-            <p class="team__role">Role or Brief Description goes here. This might be a couple of sentences about the member.</p>
-          </div>
-          <!-- Repeat cards for other team members -->
-          <div class="team__card">
-            <img src="assets/img/team/member2.jpg" alt="Member Name" class="team__photo">
-            <h3 class="team__name">Member Name</h3>
-            <p class="team__role">Role or Brief Description goes here.</p>
-          </div>
-          <!-- Add more cards as needed -->
-        </div>
-      </div>
-    </section>
+    <main class="main">
+        <!--==================== ABOUT HERO ====================-->
+        <section class="about-hero">
+            <div class="slideshow-container">
+                <!-- Slides -->
+                <div class="slide fade">
+                    <img src="assets/img/kidstudyingwithcandle copy.jpg" alt="Child studying">
+                    <div class="slide-content">
+                        <span class="slide-tag">Education</span>
+                        <h2 class="slide-title">Illuminating Paths to Education</h2>
+                        <p class="slide-description">
+                            Breaking down barriers to education by providing sustainable lighting solutions.
+                        </p>
+                        <div class="slide-buttons">
+                            <a href="#impact" class="button">Impact Stories</a>
+                            <a href="https://gofund.me/436b67db" class="button button--outline">Donate Now</a>
+                        </div>
+                    </div>
+                </div>
 
-    <section class="faq section" id="faq">
-      <div class="container">
-        <h2 class="section__title">Frequently Asked Questions</h2>
-        <div class="faq__list">
-          <!-- FAQ Item 1 -->
-          <div class="faq__item">
-            <button class="faq__question">
-              What is Flash Forward?
-              <span class="faq__icon">+</span>
-            </button>
-            <div class="faq__answer">
-              <p>
-                Flash Forward is a nonprofit organization dedicated to lighting brighter futures through providing solar-powered flashlights and educational resources to communities in need.
-              </p>
-            </div>
-          </div>
-          <!-- FAQ Item 2 -->
-          <div class="faq__item">
-            <button class="faq__question">
-              How do I donate?
-              <span class="faq__icon">+</span>
-            </button>
-            <div class="faq__answer">
-              <p>
-                You can donate by clicking the "Donate Now" button on our homepage which directs you to our donation page.
-              </p>
-            </div>
-          </div>
-          <!-- Add more FAQ items as needed -->
-        </div>
-      </div>
-    </section>
-    
-    
-    <!-- Footer -->
+                <div class="slide fade">
+                    <img src="assets/img/ghanakidpencil.jpg" alt="Child with pencil">
+                    <div class="slide-content">
+                        <span class="slide-tag">Our Mission</span>
+                        <h2 class="slide-title">Empowering Through Light</h2>
+                        <p class="slide-description">
+                            Creating sustainable change in communities without reliable electricity.
+                        </p>
+                        <div class="slide-buttons">
+                            <a href="#story" class="button">Our Story</a>
+                            <a href="/contact.html" class="button button--outline">Get Involved</a>
+                        </div>
+                    </div>
+                </div>
 
+                <div class="slide fade">
+                    <img src="assets/img/ghanamanholdingupflashlight copy.jpg" alt="Man with flashlight">
+                    <div class="slide-content">
+                        <span class="slide-tag">Community Impact</span>
+                        <h2 class="slide-title">Building Brighter Futures</h2>
+                        <p class="slide-description">
+                            Join us in our mission to bring light to communities in need.
+                        </p>
+                        <div class="slide-buttons">
+                            <a href="#approach" class="button">Learn More</a>
+                            <a href="https://gofund.me/436b67db" class="button button--outline">Support Us</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Navigation arrows -->
+                <button class="slide-nav prev">
+                    <svg aria-hidden="true" viewBox="0 0 1000 1000" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M646 125C629 125 613 133 604 142L308 442C296 454 292 471 292 487 292 504 296 521 308 533L604 854C617 867 629 875 646 875 663 875 679 871 692 858 704 846 713 829 713 812 713 796 708 779 692 767L438 487 692 225C700 217 708 204 708 187 708 171 704 154 692 142 675 129 663 125 646 125Z"></path>
+                    </svg>
+                </button>
+                <button class="slide-nav next">
+                    <svg aria-hidden="true" viewBox="0 0 1000 1000" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M696 533C708 521 713 504 713 487 713 471 708 454 696 446L400 146C388 133 375 125 354 125 338 125 325 129 313 142 300 154 292 171 292 187 292 204 296 221 308 233L563 492 304 771C292 783 288 800 288 817 288 833 296 850 308 863 321 871 338 875 354 875 371 875 388 867 400 854L696 533Z"></path>
+                    </svg>
+                </button>
+
+                <!-- Navigation dots -->
+                <div class="slide-dots">
+                    <span class="dot active" onclick="currentSlide(1)"></span>
+                    <span class="dot" onclick="currentSlide(2)"></span>
+                    <span class="dot" onclick="currentSlide(3)"></span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Our Story Section -->
+        <section class="story">
+            <div class="story__container container">
+                <div class="story__content">
+                    <h2 class="section__title">Our Story</h2>
+                    <p class="story__description">
+                        Flash Forward Foundation began with a simple observation: millions of children around the world struggle to study after sunset due to lack of reliable lighting. This challenge particularly affects communities without stable electricity access, limiting educational opportunities and perpetuating the cycle of poverty.
+                    </p>
+                    <p class="story__description">
+                        Founded by passionate students across 3 schools, our initiative started as a local project but quickly grew into a movement. We recognized that by providing solar-powered flashlights, we could create immediate, tangible impact while promoting sustainable solutions.
+                    </p>
+                </div>
+                <div class="story__image">
+                    <img src="assets/img/ghanakidpencil.jpg" alt="Child studying with solar light">
+                </div>
+            </div>
+        </section>
+
+        <!-- Impact Numbers Section -->
+        <section class="numbers">
+            <div class="numbers__container container">
+                <div class="numbers__item">
+                    <h3 class="numbers__value">500+</h3>
+                    <p class="numbers__description">Solar Lights Distributed</p>
+                </div>
+                <div class="numbers__item">
+                    <h3 class="numbers__value">1000+</h3>
+                    <p class="numbers__description">Children Impacted</p>
+                </div>
+                <div class="numbers__item">
+                    <h3 class="numbers__value">5+</h3>
+                    <p class="numbers__description">Communities Served</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Our Approach Section -->
+        <section class="approach">
+            <div class="approach__container container">
+                <h2 class="section__title">Our Approach</h2>
+                <div class="approach__grid">
+                    <div class="approach__item">
+                        <i class="ri-sun-line approach__icon"></i>
+                        <h3 class="approach__title">Sustainable Solutions</h3>
+                        <p class="approach__description">
+                            We provide high-quality solar-powered flashlights that are durable, efficient, and environmentally friendly.
+                        </p>
+                    </div>
+                    <div class="approach__item">
+                        <i class="ri-team-line approach__icon"></i>
+                        <h3 class="approach__title">Community Partnership</h3>
+                        <p class="approach__description">
+                            We work directly with local communities to ensure our solutions meet their specific needs and circumstances.
+                        </p>
+                    </div>
+                    <div class="approach__item">
+                        <i class="ri-book-open-line approach__icon"></i>
+                        <h3 class="approach__title">Education First</h3>
+                        <p class="approach__description">
+                            Our primary focus is enabling children to study effectively after dark, improving their educational opportunities.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Join Us Section -->
+        <section class="join">
+            <div class="join__container container">
+                <h2 class="join__title">Join Our Mission</h2>
+                <p class="join__description">
+                    Together, we can bring light to more children and communities in need. Your support makes a difference.
+                </p>
+                <div class="join__buttons">
+                    <a href="https://gofund.me/436b67db" class="button">Donate Now</a>
+                    <a href="/contact.html" class="button button--outline">Get Involved</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!--==================== FOOTER ====================-->
     <footer class="footer">
-      <div class="footer__container container grid">
-        <a href="#" class="footer__logo"></a>
-        <div class="footer__content grid">
-          <div>
-            <h3 class="footer__title">Social</h3>
-            <div class="footer__social">
-              <a
-                href="https://www.instagram.com/flashforwardfoundation/"
-                target="_blank"
-                class="footer__social-link"
-              >
-                <i class="ri-instagram-fill"></i>
-              </a>
-              <a
-                href="https://www.youtube.com/@FlashForwardFoundation"
-                target="_blank"
-                class="footer__social-link"
-              >
-                <i class="ri-youtube-fill"></i>
-              </a>
-              <a
-                href="https://www.tiktok.com/@flashforwardfoundation"
-                target="_blank"
-                class="footer__social-link"
-              >
-                <i class="ri-tiktok-line"></i>
-              </a>
-            </div>
-          </div>
-          <div>
-            <h3 class="footer__title">Subscribe to Our Newsletter</h3>
-            <form action="" class="footer__form">
-              <input type="email" placeholder="Email" class="footer__input" />
-              <button type="submit" class="footer__button button">
-                Subscribe
-              </button>
-            </form>
-          </div>
-        </div>
-      </div>
+        <div class="footer__container container">
+            <div class="footer__content">
+                <div>
+                    <h3 class="footer__title">Flash Forward</h3>
+                    <p class="footer__text">Lighting the path to education for children worldwide.</p>
+                    <div class="footer__social">
+                        <a href="https://www.instagram.com/flashforwardfoundation/" target="_blank" class="footer__social-link">
+                            <i class="ri-instagram-fill"></i>
+                        </a>
+                        <a href="https://www.youtube.com/@FlashForwardFoundation" target="_blank" class="footer__social-link">
+                            <i class="ri-youtube-fill"></i>
+                        </a>
+                        <a href="https://www.tiktok.com/@flashforwardfoundation" target="_blank" class="footer__social-link">
+                            <i class="ri-tiktok-line"></i>
+                        </a>
+                    </div>
+                </div>
 
-      <span class="footer__copy"> &#169; All Rights Reserved </span>
+                <div>
+                    <h3 class="footer__title">Quick Links</h3>
+                    <ul class="footer__links">
+                        <li><a href="/index.html">Home</a></li>
+                        <li><a href="/about.html">About us</a></li>
+                        <li><a href="/ourteam.html">Our Team</a></li>
+                        <li><a href="/blog.html">Blog</a></li>
+                        <li><a href="/contact.html">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="footer__title">Stay Updated</h3>
+                    <form action="" class="footer__form">
+                        <input type="email" placeholder="Enter your email" class="footer__input">
+                        <button type="submit" class="footer__button button">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <span class="footer__copy">&#169; 2024 Flash Forward Foundation. All rights reserved.</span>
     </footer>
 
+
     <!--========== SCROLL UP ==========-->
-    <a href="" class="scrollup" id="scroll-up">
-      <i class="ri-arrow-up-line"></i>
+    <a href="#" class="scrollup" id="scroll-up">
+        <i class="ri-arrow-up-line"></i>
     </a>
-
-    <!--=============== SCROLLREVEAL ===============-->
-    <script src=""></script>
-
-    <!--=============== SWIPER JS ===============-->
-    <script src=""></script>
 
     <!--=============== MAIN JS ===============-->
     <script src="assets/js/main.js"></script>
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script>
+    const swiper = new Swiper('.swiper-container', {
+        loop: true,
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+        },
+        pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+        },
+    });
+    </script>
   </body>
 </html>

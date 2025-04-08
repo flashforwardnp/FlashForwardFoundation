@@ -90,24 +90,148 @@ const scrollActive = () =>{
 }
 window.addEventListener('scroll', scrollActive)
 
-/*=============== FAQ FUNCTIONALITY ===============*/
-const faqItems = document.querySelectorAll('.faq__item');
+/*=============== FAQ ACCORDION ===============*/
+function toggleAccordion(event) {
+  const button = event.currentTarget;
+  const content = button.nextElementSibling;
+  const isExpanded = button.getAttribute('aria-expanded') === 'true';
+  
+  // Close all other accordion items
+  const accordionButtons = document.querySelectorAll('.accordion button');
+  accordionButtons.forEach(btn => {
+    if (btn !== button) {
+      btn.setAttribute('aria-expanded', 'false');
+      if (btn.nextElementSibling) {
+        btn.nextElementSibling.classList.remove('active');
+      }
+    }
+  });
+  
+  // Toggle current accordion item
+  button.setAttribute('aria-expanded', !isExpanded);
+  content.classList.toggle('active');
+}
 
-faqItems.forEach(item => {
-    const question = item.querySelector('.faq__question');
+// Initialize accordion
+document.addEventListener('DOMContentLoaded', function() {
+  const accordionButtons = document.querySelectorAll('.accordion button');
+  accordionButtons.forEach(button => {
+    button.addEventListener('click', toggleAccordion);
     
-    question.addEventListener('click', () => {
-        // Close all other items
-        faqItems.forEach(otherItem => {
-            if (otherItem !== item && otherItem.classList.contains('active')) {
-                otherItem.classList.remove('active');
-            }
-        });
-        
-        // Toggle current item
-        item.classList.toggle('active');
-    });
+    // Set initial state
+    const content = button.nextElementSibling;
+    if (content) {
+      content.classList.remove('active');
+    }
+  });
 });
+
+/*=============== SLIDESHOW ===============*/
+let slideIndex = 1;
+let slideInterval;
+
+function initSlideshow() {
+    const container = document.querySelector('.slideshow-container');
+    if (!container) {
+        console.error('Slideshow container not found');
+        return;
+    }
+
+    const slides = container.querySelectorAll('.slide');
+    if (!slides.length) {
+        console.error('No slides found');
+        return;
+    }
+
+    console.log('Slideshow initialized with', slides.length, 'slides');
+
+    // Ensure navigation arrows are visible
+    const prevButton = container.querySelector('.prev');
+    const nextButton = container.querySelector('.next');
+    if (prevButton) prevButton.style.display = 'block';
+    if (nextButton) nextButton.style.display = 'block';
+
+    // Create dots if they don't exist
+    if (!container.querySelector('.slide-dots')) {
+        const dotsContainer = document.createElement('div');
+        dotsContainer.className = 'slide-dots';
+        slides.forEach((_, index) => {
+            const dot = document.createElement('span');
+            dot.className = 'dot';
+            dot.addEventListener('click', () => currentSlide(index + 1));
+            dotsContainer.appendChild(dot);
+        });
+        container.appendChild(dotsContainer);
+    }
+
+    // Add event listeners
+    prevButton.addEventListener('click', () => changeSlide(-1));
+    nextButton.addEventListener('click', () => changeSlide(1));
+
+    // Add keyboard navigation
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowLeft') {
+            changeSlide(-1);
+        } else if (e.key === 'ArrowRight') {
+            changeSlide(1);
+        }
+    });
+
+    // Show first slide and start interval
+    showSlides(slideIndex);
+    startSlideInterval();
+}
+
+function startSlideInterval() {
+    if (slideInterval) {
+        clearInterval(slideInterval);
+    }
+    slideInterval = setInterval(() => changeSlide(1), 5000);
+}
+
+function changeSlide(n) {
+    showSlides(slideIndex += n);
+    startSlideInterval(); // Reset interval when manually changing slides
+}
+
+function currentSlide(n) {
+    showSlides(slideIndex = n);
+    startSlideInterval(); // Reset interval when manually changing slides
+}
+
+function showSlides(n) {
+    const container = document.querySelector('.slideshow-container');
+    if (!container) return;
+
+    const slides = container.querySelectorAll('.slide');
+    const dots = container.querySelectorAll('.dot');
+    
+    if (!slides.length) return;
+
+    // Handle wrapping
+    if (n > slides.length) {
+        slideIndex = 1;
+    } else if (n < 1) {
+        slideIndex = slides.length;
+    } else {
+        slideIndex = n;
+    }
+
+    // Hide all slides and remove active class from dots
+    slides.forEach(slide => {
+        slide.classList.remove('active');
+    });
+    dots.forEach(dot => {
+        dot.classList.remove('active');
+    });
+
+    // Show current slide and activate corresponding dot
+    slides[slideIndex - 1].classList.add('active');
+    dots[slideIndex - 1].classList.add('active');
+}
+
+// Initialize slideshow when DOM is loaded
+document.addEventListener('DOMContentLoaded', initSlideshow);
 
 
 

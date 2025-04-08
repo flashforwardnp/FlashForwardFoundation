@@ -70,9 +70,9 @@
                 <ul class="nav__list">
                     <li><a href="/" class="nav__link">Home</a></li>
                     <li><a href="/about.html" class="nav__link">About Us</a></li>
-                    <li><a href="/impact.html" class="nav__link">Our Impact</a></li>
-                    <li><a href="/partners.html" class="nav__link">Partners</a></li>
+                    <li><a href="/ourteam.html" class="nav__link">Our Team</a></li>
                     <li><a href="/blog.html" class="nav__link">Blog</a></li>
+                    <li><a href="/contact.html" class="nav__link">Contact</a></li>
                     <li><a href="https://gofund.me/436b67db" class="button">Donate</a></li>
                 </ul>
 
@@ -129,22 +129,6 @@
             </div>
         </section>
 
-        <!--==================== PARTNERS ====================-->
-        <section class="partner">
-            <div class="partner__container">
-                <img src="assets/img/Sammamish.png" alt="Sammamish High School logo" class="partner__logo">
-                <div class="partner__content">
-                    <h2 class="partner__title">Our Partners</h2>
-                    <p class="partner__description">
-                        We collaborate with dedicated organizations and schools to maximize our impact. 
-                        Our partnership with the Sammamish High School Builders Club demonstrates how 
-                        local communities can drive global change.
-                    </p>
-                    <a href="/partners.html" class="button">View All Partners</a>
-                </div>
-            </div>
-        </section>
-
         <!--==================== VISION ====================-->
         <section class="vision">
             <div class="vision__container container">
@@ -158,60 +142,95 @@
                         Through sustainable solar technology and community partnerships, we're creating 
                         lasting change—one flashlight at a time.
                     </p>
-                    <a href="/impact.html" class="button">See Our Impact</a>
+                    <a href="/blog.html" class="button">See Our Impact</a>
+                </div>
+            </div>
+        </section>
+
+        <!--==================== OUR VALUES ====================-->
+        <section class="values">
+            <div class="values__container container">
+                <h2 class="section__title">Our Values</h2>
+                <div class="values__content">
+                    <div class="value">
+                        <h3 class="value__title">Sustainability</h3>
+                        <p class="value__description">
+                            We prioritize sustainable solutions that benefit both people and the planet.
+                        </p>
+                    </div>
+                    <div class="value">
+                        <h3 class="value__title">Community</h3>
+                        <p class="value__description">
+                            We believe in the power of community and work closely with local partners.
+                        </p>
+                    </div>
+                    <div class="value">
+                        <h3 class="value__title">Education</h3>
+                        <p class="value__description">
+                            Education is at the heart of our mission, empowering children to reach their potential.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!--==================== PARTNERS ====================-->
+        <section class="partner">
+            <div class="partner__container">
+                <img src="assets/img/Sammamish.png" alt="Sammamish High School logo" class="partner__logo">
+                <div class="partner__content">
+                    <h2 class="partner__title">Our Partners</h2>
+                    <p class="partner__description">
+                        We collaborate with dedicated organizations and schools to maximize our impact. 
+                        Our partnership with the Sammamish High School Builders Club demonstrates how 
+                        local communities can drive global change.
+                    </p>
                 </div>
             </div>
         </section>
 
         <!--==================== FAQ ====================-->
         <section class="faq">
-            <div class="faq__container">
-                <h2 class="faq__title">What's on your mind?</h2>
-                
-                <div class="faq__item">
-                    <div class="faq__question">
-                        How do I make a donation to help fight poverty?
-                        <i class="ri-arrow-down-s-line"></i>
-                    </div>
-                    <div class="faq__answer">
-                        <div class="faq__answer-content">
-                            You can make a donation through our GoFundMe page or contact us directly for other donation options. Every contribution helps us provide solar-powered flashlights to children in need.
+            <div class="container">
+                <h2 class="section__title">What's on your mind?</h2>
+                <div class="accordion">
+                    <div class="accordion-item">
+                        <button id="accordion-button-1" aria-expanded="false">
+                            <span class="accordion-title">How do I make a donation to help fight poverty?</span>
+                            <span class="icon" aria-hidden="true"></span>
+                        </button>
+                        <div class="accordion-content">
+                            <p>You can make a donation through our GoFundMe page or contact us directly for other donation options. Every contribution helps us provide solar-powered flashlights to children in need.</p>
                         </div>
                     </div>
-                </div>
 
-                <div class="faq__item">
-                    <div class="faq__question">
-                        Why should I support Flash Forward?
-                        <i class="ri-arrow-down-s-line"></i>
-                    </div>
-                    <div class="faq__answer">
-                        <div class="faq__answer-content">
-                            Flash Forward provides sustainable lighting solutions to children in off-grid communities, enabling them to study after dark and break the cycle of poverty through education. Your support directly impacts children's educational opportunities.
+                    <div class="accordion-item">
+                        <button id="accordion-button-2" aria-expanded="false">
+                            <span class="accordion-title">Why should I support Flash Forward?</span>
+                            <span class="icon" aria-hidden="true"></span>
+                        </button>
+                        <div class="accordion-content">
+                            <p>Flash Forward provides sustainable lighting solutions to children in off-grid communities, enabling them to study after dark and break the cycle of poverty through education. Your support directly impacts children's educational opportunities.</p>
                         </div>
                     </div>
-                </div>
 
-                <div class="faq__item">
-                    <div class="faq__question">
-                        How will Flash Forward use my donation?
-                        <i class="ri-arrow-down-s-line"></i>
-                    </div>
-                    <div class="faq__answer">
-                        <div class="faq__answer-content">
-                            Your donation goes directly towards purchasing and distributing solar-powered flashlights to children in need. We also invest in community partnerships and educational programs to ensure sustainable impact.
+                    <div class="accordion-item">
+                        <button id="accordion-button-3" aria-expanded="false">
+                            <span class="accordion-title">How will Flash Forward use my donation?</span>
+                            <span class="icon" aria-hidden="true"></span>
+                        </button>
+                        <div class="accordion-content">
+                            <p>Your donation goes directly towards purchasing and distributing solar-powered flashlights to children in need. We also invest in community partnerships and educational programs to ensure sustainable impact.</p>
                         </div>
                     </div>
-                </div>
 
-                <div class="faq__item">
-                    <div class="faq__question">
-                        Can I volunteer or get involved?
-                        <i class="ri-arrow-down-s-line"></i>
-                    </div>
-                    <div class="faq__answer">
-                        <div class="faq__answer-content">
-                            Yes! We welcome volunteers and partnerships. Contact us to learn about current opportunities and how you can contribute to our mission.
+                    <div class="accordion-item">
+                        <button id="accordion-button-4" aria-expanded="false">
+                            <span class="accordion-title">Can I volunteer or get involved?</span>
+                            <span class="icon" aria-hidden="true"></span>
+                        </button>
+                        <div class="accordion-content">
+                            <p>Yes! We welcome volunteers and partnerships. Contact us to learn about current opportunities and how you can contribute to our mission.</p>
                         </div>
                     </div>
                 </div>
@@ -287,9 +306,9 @@
                 <div>
                     <h3 class="footer__title">Quick Links</h3>
                     <ul class="footer__links">
-                        <li><a href="/about.html">About Us</a></li>
-                        <li><a href="/impact.html">Our Impact</a></li>
-                        <li><a href="/partners.html">Partners</a></li>
+                        <li><a href="/index.html">Home</a></li>
+                        <li><a href="/about.html">About us</a></li>
+                        <li><a href="/ourteam.html">Our Team</a></li>
                         <li><a href="/blog.html">Blog</a></li>
                         <li><a href="/contact.html">Contact</a></li>
                     </ul>

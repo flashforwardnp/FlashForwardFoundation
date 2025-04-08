@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!--=============== FAVICON ===============-->
+    <link rel="shortcut icon" href="assets/img/favicon.png" type="image/x-icon">
+
+    <!--=============== REMIXICONS ===============-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.css">
+
+    <!--=============== CSS ===============-->
+    <link rel="stylesheet" href="assets/css/styles.css">
+
+    <title>Our Team - Flash Forward Foundation</title>
+</head>
+<body>
+    <!--==================== PROMO BANNER ====================-->
+    <div class="promo-banner">
+        <a href="https://gofund.me/436b67db" class="animated-anchor-link">
+            <span id="typing-text"></span>
+        </a>
+    </div>
+
+    <script>
+    const textArray = [
+        "🌟 Join us in lighting up futures! Donate today and make a difference. Click here to support ➜"
+    ];
+    let textIndex = 0;
+    let charIndex = 0;
+    let typingSpeed = 40;
+    let erasingSpeed = 40;
+    let delayBetweenTexts = 3000;
+
+    function typeText() {
+        if (charIndex < textArray[textIndex].length) {
+            document.getElementById("typing-text").innerHTML += textArray[textIndex].charAt(charIndex);
+            charIndex++;
+            setTimeout(typeText, typingSpeed);
+        } else {
+            setTimeout(eraseText, delayBetweenTexts);
+        }
+    }
+
+    function eraseText() {
+        if (charIndex > 0) {
+            document.getElementById("typing-text").innerHTML = textArray[textIndex].substring(0, charIndex - 1);
+            charIndex--;
+            setTimeout(eraseText, erasingSpeed);
+        } else {
+            setTimeout(typeText, typingSpeed);
+        }
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+        setTimeout(typeText, 500);
+    });
+    </script>
+
+    <!--==================== HEADER ====================-->
+    <header class="header">
+        <nav class="nav">
+            <a href="/" class="nav__logo">
+                <img src="assets/img/logobig.svg" alt="Flash Forward Logo">
+                Flash Forward
+            </a>
+
+            <div class="nav__menu" id="nav-menu">
+                <ul class="nav__list">
+                    <li><a href="/" class="nav__link">Home</a></li>
+                    <li><a href="/about.html" class="nav__link">About Us</a></li>
+                    <li><a href="/ourteam.html" class="nav__link active-link">Our Team</a></li>
+                    <li><a href="/blog.html" class="nav__link">Blog</a></li>
+                    <li><a href="/contact.html" class="nav__link">Contact</a></li>
+                    <li><a href="https://gofund.me/436b67db" class="button">Donate</a></li>
+                </ul>
+
+                <div class="nav__close" id="nav-close">
+                    <i class="ri-close-line"></i>
+                </div>
+            </div>
+
+            <div class="nav__toggle" id="nav-toggle">
+                <i class="ri-menu-line"></i>
+            </div>
+        </nav>
+    </header>
+
+    <!--==================== OUR TEAM ====================-->
+    <br><br><br>
+    <section class="team-section">
+        <div class="container">
+            <h2 class="section__title">Our Team</h2>
+            <div class="team-container">
+                <!-- Team Member Card 1 -->
+                <div class="team-card">
+                    <div class="team-img">
+                        <img src="assets/img/team/sreeface2.jpeg" alt="Team Member">
+                    </div>
+                    <div class="team-text">
+                        <span>President and Executive Director</span>
+                        <a href="#" class="team-name">Sree Kokkonda</a>
+                        <p>
+                          Leads the team with vision and direction, passionate about combining technology and social impact to create sustainable change.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Team Member Card 2 (Template) -->
+                <div class="team-card">
+                    <div class="team-img">
+                        <img src="assets/img/team/nithilanface2.JPG" alt="Team Member">
+                    </div>
+                    <div class="team-text">
+                        <span>Vice President and Executive Director</span>
+                        <a href="#" class="team-name">Nithilan Selvakumar</a>
+                        <p>
+                          Handles the paperwork side—researching laws, partnerships, and making sure we operate responsibly.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Team Member Card 3 (Template) -->
+                <div class="team-card">
+                    <div class="team-img">
+                        <img src="assets/img/team/romirface.png" alt="Team Member">
+                    </div>
+                    <div class="team-text">
+                        <span>Treasurer and Executive Director</span>
+                        <a href="#" class="team-name">Romir Chekuri</a>
+                        <p>
+                          Manages our budget, tracks donations, and ensures every dollar is spent wisely to support our mission.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="team-card">
+                  <div class="team-img">
+                      <img src="assets/img/team/samarthface.png" alt="Team Member">
+                  </div>
+                  <div class="team-text">
+                      <span>Secretary & Executive Director</span>
+                      <a href="#" class="team-name">Samarth Morentsov</a>
+                      <p>
+                        Keeps our team organized by documenting meetings, maintaining records, and making sure everyone stays on the same page.
+                      </p>
+                  </div>
+              </div>
+
+              <!-- Team Member Card 2 (Template) -->
+              <div class="team-card">
+                  <div class="team-img">
+                      <img src="assets/img/team/neilface.jpeg" alt="Team Member">
+                  </div>
+                  <div class="team-text">
+                      <span>Product Design Lead</span>
+                      <a href="#" class="team-name">Neil Mukherjee</a>
+                      <p>
+                        Leads the development of our solar-powered flashlight with a balance of functionality and simplicity.
+                      </p>
+                  </div>
+              </div>
+
+              <!-- Team Member Card 3 (Template) -->
+              <div class="team-card">
+                  <div class="team-img">
+                      <img src="assets/img/team/aarushface.JPG" alt="Team Member">
+                  </div>
+                  <div class="team-text">
+                      <span>Market Research Lead</span>
+                      <a href="#" class="team-name">Aarush Sureddi</a>
+                      <p>
+                        Dives deep into global needs and opportunities to help us deliver our flashlights where they'll make the most impact.
+                      </p>
+                  </div>
+              </div>
+
+              <div class="team-card">
+                <div class="team-img">
+                    <img src="assets/img/team/sakshamface.JPG" alt="Team Member">
+                </div>
+                <div class="team-text">
+                    <span>Marketing & Outreach Lead</span>
+                    <a href="#" class="team-name">Saksham Gupta</a>
+                    <p>
+                      Spreads the word through impactful campaigns that build awareness and drive support.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Team Member Card 2 (Template) -->
+            <div class="team-card">
+                <div class="team-img">
+                    <img src="assets/img/team/" alt="Team Member">
+                </div>
+                <div class="team-text">
+                    <span>Partnership Strategist</span>
+                    <a href="#" class="team-name">Samay Sheth</a>
+                    <p>
+                      Connects with sponsors, schools, and organizations to build the support that powers our project forward.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Team Member Card 3 (Template) -->
+            <div class="team-card">
+                <div class="team-img">
+                    <img src="assets/img/team/" alt="Team Member">
+                </div>
+                <div class="team-text">
+                    <span>Role Title</span>
+                    <a href="#" class="team-name">Aarya Karnati</a>
+                    <p>
+                      Dives deep into global needs and opportunities to help us deliver our flashlights where they'll make the most impact.
+                    </p>
+                </div>
+            </div>
+            </div>
+        </div>
+    </section>
+
+    <!--==================== FOOTER ====================-->
+    <footer class="footer">
+        <div class="footer__container container">
+            <div class="footer__content">
+                <div>
+                    <h3 class="footer__title">Flash Forward</h3>
+                    <p class="footer__text">Lighting the path to education for children worldwide.</p>
+                    <div class="footer__social">
+                        <a href="https://www.instagram.com/flashforwardfoundation/" target="_blank" class="footer__social-link">
+                            <i class="ri-instagram-fill"></i>
+                        </a>
+                        <a href="https://www.youtube.com/@FlashForwardFoundation" target="_blank" class="footer__social-link">
+                            <i class="ri-youtube-fill"></i>
+                        </a>
+                        <a href="https://www.tiktok.com/@flashforwardfoundation" target="_blank" class="footer__social-link">
+                            <i class="ri-tiktok-line"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div>
+                    <h3 class="footer__title">Quick Links</h3>
+                    <ul class="footer__links">
+                        <li><a href="/index.html">Home</a></li>
+                        <li><a href="/about.html">About us</a></li>
+                        <li><a href="/ourteam.html">Our Team</a></li>
+                        <li><a href="/blog.html">Blog</a></li>
+                        <li><a href="/contact.html">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="footer__title">Stay Updated</h3>
+                    <form action="" class="footer__form">
+                        <input type="email" placeholder="Enter your email" class="footer__input">
+                        <button type="submit" class="footer__button button">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <span class="footer__copy">&#169; 2024 Flash Forward Foundation. All rights reserved.</span>
+    </footer>
+
+
+    <!--========== SCROLL UP ==========-->
+    <a href="#" class="scrollup" id="scroll-up">
+        <i class="ri-arrow-up-line"></i>
+    </a>
+
+    <!--=============== MAIN JS ===============-->
+    <script src="assets/js/main.js"></script>
+</body>
+</html> 

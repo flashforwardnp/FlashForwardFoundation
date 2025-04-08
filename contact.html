@@ -29,29 +29,12 @@
 
             <div class="nav__menu" id="nav-menu">
                 <ul class="nav__list">
-                    <li>
-                        <a href="/index.html" class="nav__link active-link">Home</a>
-                    </li>
-
-                    <li>
-                        <a href="/about.html" class="nav__link">About Us</a>
-                    </li>
-
-                    <li>
-                        <a href="/index.html" class="nav__link">Partnerships</a>
-                    </li>
-
-                    <li>
-                        <a href="/blog.html" class="nav__link">Blog</a>
-                    </li>
-
-                    <li>
-                        <a href="https://gofund.me/436b67db" class="nav__link">Donate</a>
-                    </li>
-
-                    <li>
-                        <a href="/contact.html" class="nav__link">Contact</a>
-                    </li>
+                    <li><a href="/" class="nav__link">Home</a></li>
+                    <li><a href="/about.html" class="nav__link">About Us</a></li>
+                    <li><a href="/ourteam.html" class="nav__link">Our Team</a></li>
+                    <li><a href="/blog.html" class="nav__link">Blog</a></li>
+                    <li><a href="/contact.html" class="nav__link active-link">Contact</a></li>
+                    <li><a href="https://gofund.me/436b67db" class="button">Donate</a></li>
                 </ul>
 
                 <!-- Close button -->
@@ -67,50 +50,102 @@
         </nav>
     </header>
 
-    <section class="contact section" id="contact">
-        <div class="contact__container container grid">
-            <div class="contact__data">
-                <h2 class="section__title">Contact Now</h2>
-
-                <div class="contact__info grid">
-                    <div>
-                        <h3 class="contact__title">Socials</h3>
-                    </div>
-                    <div>
-                        <a href="" target="_blank" class="contact__social-link">
-                            <i class="ri-instagram-fill"></i>
-                        </a>
-                        <a href="" target="_blank" class="contact__social-link">
-                            <i class="ri-youtube-fill"></i>
-                        </a>
-                        <a href="" target="_blank" class="contact__social-link">
-                            <i class="ri-tiktok-line"></i>
-                        </a>
-                    </div>
-                    <div>
-                        <h3 class="contact__title">Email</h3>
-                        <div class="email">
-                            <a href="mailto:flashforwardnp@gmail.com">flashforwardnp@gmail.com</a></span>
+    <br><br><br>
+    <section class="contact">
+        <div class="contact__container">
+            <div class="contact__content">
+                <h2 class="contact__title">Get in Touch</h2>
+                <p class="contact__description">
+                    Have questions about our mission or want to get involved? We'd love to hear from you!
+                </p>
+                <div class="contact__info">
+                    <div class="contact__card">
+                        <i class="ri-mail-line contact__card-icon"></i>
+                        <div>
+                            <h3 class="contact__card-title">Email</h3>
+                            <span class="contact__card-data">info@flashforwardfoundation.org</span>
                         </div>
-                    </div>                
-                </div>  
+                    </div>
+                    <div class="contact__card">
+                        <i class="ri-map-pin-line contact__card-icon"></i>
+                        <div>
+                            <h3 class="contact__card-title">Location</h3>
+                            <span class="contact__card-data">Sammamish, WA</span>
+                        </div>
+                    </div>
+                </div>
             </div>
 
-            <div class="contact__image">
-
-            </div>
-
+            <form action="https://formspree.io/f/xldjopko" method="POST" class="contact__form">
+                <div class="contact__form-div">
+                    <label class="contact__form-tag">Name</label>
+                    <input type="text" name="name" class="contact__form-input" placeholder="Your Name" required>
+                </div>
+                <div class="contact__form-div">
+                    <label class="contact__form-tag">Email</label>
+                    <input type="email" name="email" class="contact__form-input" placeholder="Your Email" required>
+                </div>
+                <div class="contact__form-div">
+                    <label class="contact__form-tag">Message</label>
+                    <textarea name="message" class="contact__form-input contact__form-area" placeholder="Your Message" required></textarea>
+                </div>
+                <button type="submit" class="button">Send Message</button>
+            </form>
+            
         </div>
-     </section>
-  </main>
+    </section>
 
+    <!--==================== PROMO BANNER ====================-->
+    <div class="promo-banner">
+        <a href="https://gofund.me/436b67db" class="animated-anchor-link">
+            <span id="typing-text"></span>
+        </a>
+    </div>
+
+    <script>
+    const textArray = [
+        "🌟 Join us in lighting up futures! Donate today and make a difference. Click here to support ➜"
+    ];
+    let textIndex = 0;
+    let charIndex = 0;
+    let typingSpeed = 40;
+    let erasingSpeed = 40;
+    let delayBetweenTexts = 3000;
+
+    function typeText() {
+        if (charIndex < textArray[textIndex].length) {
+            document.getElementById("typing-text").innerHTML += textArray[textIndex].charAt(charIndex);
+            charIndex++;
+            setTimeout(typeText, typingSpeed);
+        } else {
+            setTimeout(eraseText, delayBetweenTexts);
+        }
+    }
+
+    function eraseText() {
+        if (charIndex > 0) {
+            document.getElementById("typing-text").innerHTML = textArray[textIndex].substring(0, charIndex - 1);
+            charIndex--;
+            setTimeout(eraseText, erasingSpeed);
+        } else {
+            setTimeout(typeText, typingSpeed);
+        }
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+        setTimeout(typeText, 500);
+    });
+    </script>
+
+  </main>
+  
   <footer class="footer">
-    <div class="footer__container container grid">
-       <a href="#" class="footer__logo"></a>
-       <div class="footer__content grid">
-           <div>
-               <h3 class="footer__title">Social</h3>
-               <div class="footer__social">
+    <div class="footer__container container">
+        <div class="footer__content">
+            <div>
+                <h3 class="footer__title">Flash Forward</h3>
+                <p class="footer__text">Lighting the path to education for children worldwide.</p>
+                <div class="footer__social">
                     <a href="https://www.instagram.com/flashforwardfoundation/" target="_blank" class="footer__social-link">
                         <i class="ri-instagram-fill"></i>
                     </a>
@@ -120,22 +155,32 @@
                     <a href="https://www.tiktok.com/@flashforwardfoundation" target="_blank" class="footer__social-link">
                         <i class="ri-tiktok-line"></i>
                     </a>
-               </div>
-           </div>
-           <div>
-               <h3 class="footer__title">Subscribe to Our Newsletter</h3>
-               <form action="" class="footer__form">
-                   <input type="email" placeholder="Email" class="footer__input">
-                   <button type="submit" class="footer__button button">Subscribe</button>
-               </form>
-           </div>
-       </div>
-    </div>
+                </div>
+            </div>
 
-    <span class="footer__copy">
-       &#169; All Rights Reserved
-    </span>
- </footer>
+            <div>
+                <h3 class="footer__title">Quick Links</h3>
+                <ul class="footer__links">
+                    <li><a href="/index.html">Home</a></li>
+                    <li><a href="/about.html">About us</a></li>
+                    <li><a href="/ourteam.html">Our Team</a></li>
+                    <li><a href="/blog.html">Blog</a></li>
+                    <li><a href="/contact.html">Contact</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h3 class="footer__title">Stay Updated</h3>
+                <form action="" class="footer__form">
+                    <input type="email" placeholder="Enter your email" class="footer__input">
+                    <button type="submit" class="footer__button button">Subscribe</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <span class="footer__copy">&#169; 2024 Flash Forward Foundation. All rights reserved.</span>
+</footer>
+
 
  <!--========== SCROLL UP ==========-->
  <a href="" class="scrollup" id="scroll-up">
