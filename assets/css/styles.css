@@ -17,6 +17,12 @@
   --body-color: hsl(0, 0%, 98%);
   --container-color: hsl(0, 0%, 95%);
   --border-color: hsl(0, 0%, 90%);
+
+  /* FAQ */
+  --white-colorfaq: #ffffff;
+  --primary-colorfaq: #03b5d2;
+  --text-colorfaq: #4d5974;
+  --border-colorfaq: #e5e5e5;
   
   /*========== Font and typography ==========*/
   --body-font: "Open Sans", sans-serif;
@@ -1706,21 +1712,30 @@ img {
       flex: 1 1 100%;
     }
   }
-  
-/* FAQ Section Styles */
+
+
+/* FAQ Section */
+
 .faq {
-  padding: 6rem 0;
-  background-color: var(--white-color);
+  padding: 2rem 0;
+  background-color: var(--white-colorfaq);
 }
 
 .faq .container {
   margin: 0 auto;
-  padding: 4rem;
+  padding: 1rem;
   width: 48rem;
+  max-width: 100%;
+}
+
+.section__title {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  text-align: center;
 }
 
 .accordion .accordion-item {
-  border-bottom: 1px solid var(--border-color);
+  border-bottom: 1px solid var(--border-colorfaq);
 }
 
 .accordion button {
@@ -1729,22 +1744,24 @@ img {
   text-align: left;
   width: 100%;
   padding: 1em 0;
-  color: var(--text-color);
+  color: var(--text-colorfaq);
   font-size: 1.15rem;
   font-weight: 400;
   border: none;
   background: none;
   outline: none;
+  transition: color 0.3s ease;
 }
 
 .accordion button:hover,
 .accordion button:focus {
   cursor: pointer;
-  color: var(--primary-color);
+  color: var(--primary-colorfaq);
 }
 
-.accordion button .accordion-title {
+.accordion-title {
   padding: 1em 1.5em 1em 0;
+  display: inline-block;
 }
 
 .accordion button .icon {
@@ -1759,30 +1776,25 @@ img {
   transform: translateY(-50%);
 }
 
-.accordion button .icon::before {
-  display: block;
-  position: absolute;
+.accordion button .icon::before,
+.accordion button .icon::after {
   content: '';
+  position: absolute;
+  background: currentColor;
+}
+
+.accordion button .icon::before {
   top: 9px;
   left: 5px;
   width: 10px;
   height: 2px;
-  background: currentColor;
 }
 
 .accordion button .icon::after {
-  display: block;
-  position: absolute;
-  content: '';
   top: 5px;
   left: 9px;
   width: 2px;
   height: 10px;
-  background: currentColor;
-}
-
-.accordion button[aria-expanded='true'] {
-  color: var(--primary-color);
 }
 
 .accordion button[aria-expanded='true'] .icon::after {
@@ -1793,29 +1805,21 @@ img {
   opacity: 0;
   max-height: 0;
   overflow: hidden;
-  transition: all 200ms linear;
+  transition: all 0.3s ease;
   will-change: opacity, max-height;
 }
 
 .accordion .accordion-content.active {
   opacity: 1;
-  max-height: 20em; /* Increased from 9em to accommodate longer content */
+  max-height: 20em;
   margin-bottom: 1em;
-}
-
-.accordion button[aria-expanded='true'] {
-  color: var(--primary-color);
-}
-
-.accordion button[aria-expanded='true'] .icon::after {
-  width: 0;
 }
 
 .accordion .accordion-content p {
   font-size: 1rem;
   font-weight: 300;
-  margin: 2em 0;
-  color: var(--text-color);
+  margin: 1em 0;
+  color: var(--text-colorfaq);
 }
 
 @media screen and (max-width: 768px) {
@@ -1823,15 +1827,16 @@ img {
     padding: 2rem;
     width: 100%;
   }
-  
+
   .accordion button {
     font-size: 1rem;
   }
-  
+
   .accordion .accordion-content p {
     font-size: 0.9rem;
   }
 }
+
 
 /* About Hero Section with Slideshow */
 .about-hero {
@@ -1940,6 +1945,12 @@ img {
     align-items: center;
     justify-content: center;
     border-radius: 50%;
+}
+
+.slide-nav svg {
+  width: 24px;
+  height: 24px;
+  fill: white;
 }
 
 .slide-nav:hover {
@@ -2325,4 +2336,4 @@ img {
     font-size: 1rem;
     color: #666;
 }
-  
+

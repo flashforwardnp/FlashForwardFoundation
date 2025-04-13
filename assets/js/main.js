@@ -45,12 +45,12 @@ const shadowHeader = () =>{
 window.addEventListener('scroll', shadowHeader)
 
 /*=============== SWIPER POPULAR ===============*/
-const swiperPopular = new Swiper('.popular__swiper', {
-    loop: true,
-    grabCursor: true,
-    slidesPerView: 'auto',
-    centeredSlides: 'auto',
-})
+// const swiperPopular = new Swiper('.popular__swiper', {
+//     loop: true,
+//     grabCursor: true,
+//     slidesPerView: 'auto',
+//     centeredSlides: 'auto',
+// })
 
 /*=============== SHOW SCROLL UP ===============*/ 
 const scrollUp = () =>{
@@ -89,42 +89,6 @@ const scrollActive = () =>{
 	})
 }
 window.addEventListener('scroll', scrollActive)
-
-/*=============== FAQ ACCORDION ===============*/
-function toggleAccordion(event) {
-  const button = event.currentTarget;
-  const content = button.nextElementSibling;
-  const isExpanded = button.getAttribute('aria-expanded') === 'true';
-  
-  // Close all other accordion items
-  const accordionButtons = document.querySelectorAll('.accordion button');
-  accordionButtons.forEach(btn => {
-    if (btn !== button) {
-      btn.setAttribute('aria-expanded', 'false');
-      if (btn.nextElementSibling) {
-        btn.nextElementSibling.classList.remove('active');
-      }
-    }
-  });
-  
-  // Toggle current accordion item
-  button.setAttribute('aria-expanded', !isExpanded);
-  content.classList.toggle('active');
-}
-
-// Initialize accordion
-document.addEventListener('DOMContentLoaded', function() {
-  const accordionButtons = document.querySelectorAll('.accordion button');
-  accordionButtons.forEach(button => {
-    button.addEventListener('click', toggleAccordion);
-    
-    // Set initial state
-    const content = button.nextElementSibling;
-    if (content) {
-      content.classList.remove('active');
-    }
-  });
-});
 
 /*=============== SLIDESHOW ===============*/
 let slideIndex = 1;
@@ -232,6 +196,3 @@ function showSlides(n) {
 
 // Initialize slideshow when DOM is loaded
 document.addEventListener('DOMContentLoaded', initSlideshow);
-
-
-
