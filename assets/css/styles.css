@@ -995,6 +995,11 @@ img {
     gap: 1rem;
 }
 
+#newsletter-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+} 
 .footer__input {
     width: 100%;
     padding: 1rem;

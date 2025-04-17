@@ -295,9 +295,9 @@
 
                 <div>
                     <h3 class="footer__title">Stay Updated</h3>
-                    <form action="" class="footer__form">
-                        <input type="email" placeholder="Enter your email" class="footer__input">
-                        <button type="submit" class="footer__button button">Subscribe</button>
+                    <form id="newsletter-form" class="footer__form">
+                        <input type="email" name="email" placeholder="Your Email" required>
+                        <button type="submit">Subscribe</button>
                     </form>
                 </div>
             </div>
@@ -341,6 +341,29 @@
     });
     });
 
+    document.getElementById('newsletter-form').addEventListener('submit', function(e) {
+        e.preventDefault();
+        const emailInput = e.target.querySelector('input[name="email"]');
+        const email = emailInput ? emailInput.value : '';
+
+        console.log(emailInput);
+
+        
+        fetch('/subscribe', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ email }),
+        })
+        .then(response => response.json())
+        .then(data => {
+            alert('Subscription successful!');
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
+    });
     </script>
   </body>
 </html>

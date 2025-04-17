@@ -317,7 +317,7 @@
 
                 <div>
                     <h3 class="footer__title">Stay Updated</h3>
-                    <form action="" class="footer__form">
+                    <form id="newsletter-form">
                         <input type="email" placeholder="Enter your email" class="footer__input">
                         <button type="submit" class="footer__button button">Subscribe</button>
                     </form>
@@ -359,5 +359,27 @@
           })
         );
       </script>      
+
+    <script>
+    document.getElementById('newsletter-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const email = e.target.email.value;
+
+      fetch('/subscribe', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email }),
+      })
+      .then(response => response.json())
+      .then(data => {
+        alert('Subscription successful!');
+      })
+      .catch(error => {
+        console.error('Error:', error);
+      });
+    });
+    </script>
 </body>
 </html>
