@@ -539,32 +539,22 @@ img {
 
 @media (max-width: 768px) {
     .about__container {
-        grid-template-columns: 1fr; /* Stack images and text vertically */
+        grid-template-columns: 1fr; /* Stack content vertically */
+        padding: 2rem 1rem;
     }
-
     .about__data {
         text-align: center; /* Center-align text on mobile */
     }
-
+    .about__img {
+        max-width: 100%; /* Make image responsive */
+        height: auto;
+    }
     .about__points {
         align-items: center; /* Center the bullet points */
     }
-
-    .about__img {
-        max-width: 100%; /* Make image responsive */
-    }
-
     .button {
         width: 100%; /* Make button full-width on mobile */
         text-align: center;
-    }
-
-    /* Reset overlapping images for smaller screens */
-    .first-image, .second-image {
-        position: static; /* Stack them vertically */
-        top: 0;
-        left: 0;
-        z-index: 1; /* Reset z-index for proper stacking */
     }
 }
 
@@ -2014,17 +2004,24 @@ img {
 }
 
 @media screen and (max-width: 768px) {
+    .slide-content {
+        padding: 1.5rem;
+        max-width: 90%;
+    }
+    .slide-title {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+    }
+    .slide-description {
+        font-size: 1rem;
+        margin-bottom: 1.5rem;
+    }
+    .slide-buttons {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
     .slide-nav {
         display: none;
-    }
-    
-    .slide-content {
-        padding: 1rem;
-    }
-    
-    .dot {
-        width: 8px;
-        height: 8px;
     }
 }
 
@@ -2390,5 +2387,35 @@ img {
   .value {
     text-align: center;
   }
+}
+
+@media screen and (max-width: 768px) {
+    .promo-banner {
+        display: none;
+    }
+    .header {
+        top: 0; /* Move the header up when the promo banner is hidden */
+    }
+    .main {
+        margin-top: var(--header-height); /* Adjust main content margin */
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .story__container {
+        grid-template-columns: 1fr; /* Stack content vertically */
+        padding: 2rem 1rem;
+    }
+    .numbers__container {
+        grid-template-columns: 1fr; /* Stack numbers vertically */
+        gap: 1rem;
+    }
+    .approach__grid {
+        grid-template-columns: 1fr; /* Stack approach items vertically */
+        gap: 1rem;
+    }
+    .approach__item, .numbers__item {
+        text-align: center;
+    }
 }
 

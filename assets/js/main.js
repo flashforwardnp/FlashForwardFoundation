@@ -196,3 +196,33 @@ function showSlides(n) {
 
 // Initialize slideshow when DOM is loaded
 document.addEventListener('DOMContentLoaded', initSlideshow);
+
+function detectSwipe(slideshowContainer) {
+    let startX;
+    let endX;
+
+    slideshowContainer.addEventListener('touchstart', (e) => {
+        startX = e.touches[0].clientX;
+    });
+
+    slideshowContainer.addEventListener('touchend', (e) => {
+        endX = e.changedTouches[0].clientX;
+        handleSwipe();
+    });
+
+    function handleSwipe() {
+        if (startX > endX + 50) {
+            // Swipe left
+            showSlides(currentSlide + 1);
+        } else if (startX < endX - 50) {
+            // Swipe right
+            showSlides(currentSlide - 1);
+        }
+    }
+}
+
+// Initialize swipe detection
+const slideshowContainer = document.querySelector('.slideshow-container');
+if (slideshowContainer) {
+    detectSwipe(slideshowContainer);
+}
